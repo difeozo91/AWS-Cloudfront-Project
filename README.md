@@ -90,6 +90,40 @@ S3 usage may still incur applicable charges. Resources were removed after testin
 - How HTTPS protects website delivery.
 - How caching reduces repeated origin requests.
 
+1. What problem does CloudFront solve?
+
+CloudFront speeds up content delivery by distributing website content through a global network of edge locations, reducing latency for users.
+
+2. What is the difference between an origin and an edge location?
+- Origin: The original location where content is stored, such as an S3 bucket.
+- Edge location: A CloudFront location that caches and delivers content closer to users.
+3. How does CloudFront communicate with S3?
+
+CloudFront sends requests to the S3 origin. S3 checks the bucket policy and, if authorized, returns the requested objects to CloudFront.
+
+4. Why do we use OAC?
+
+Origin Access Control allows CloudFront to securely access a private S3 bucket without making the bucket publicly accessible.
+
+5. What is the difference between OAC and a public bucket policy?
+- OAC: Restricts access to authenticated CloudFront requests.
+- Public bucket policy: Allows anyone to access objects if public access restrictions permit it.
+6. What is caching?
+
+Caching is temporarily storing website content so it can be delivered faster without repeatedly retrieving it from the original source.
+
+7. What is the difference between a cache hit and cache miss?
+- Cache hit: CloudFront already has the requested content cached and serves it.
+- Cache miss: CloudFront retrieves the content from the origin, such as S3.
+8. Why does CloudFront support HTTPS while the direct S3 website endpoint does not?
+
+CloudFront supports HTTPS through its SSL/TLS certificates and distribution domain. The direct S3 static website endpoint only supports HTTP.
+
 ## Project Status
 
 Completed – AWS CloudFront and S3 Content Delivery Lab.
+
+
+
+
+
